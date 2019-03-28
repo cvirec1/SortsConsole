@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 15 for Windows Desktop
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortConsole", "SortConsole.csproj", "{67BD4A65-75E3-41AF-B421-FFA39ADE880E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67BD4A65-75E3-41AF-B421-FFA39ADE880E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BD4A65-75E3-41AF-B421-FFA39ADE880E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BD4A65-75E3-41AF-B421-FFA39ADE880E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BD4A65-75E3-41AF-B421-FFA39ADE880E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {137FCB97-E89A-4D54-BCB7-2EE693F82712}
+	EndGlobalSection
+EndGlobal
