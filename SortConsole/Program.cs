@@ -10,13 +10,17 @@ namespace SortConsole
     {
         static void Main(string[] args)
         {
-            int [] data = GenerateData(10000);
+            int [] data = GenerateData(10000,100000);
             //BubbleSort(data);                   
-            SelectionSort(data);
+            //SelectionSort(data);
+            WriteData(InsertSort(data));
+            //WriteData(BubbleSort(data));
+            //WriteData(SelectionSort(data));
+            //InsertSort(data);
             Console.ReadKey();
         }
 
-        static void BubbleSort(int[] data)
+        static int[] BubbleSort(int[] data)
         {
             for (int i = 0; i < data.Length; i++)
             {
@@ -27,11 +31,12 @@ namespace SortConsole
                         ChangeNumber(ref data[j],ref data[j + 1]);
                     }
                 }
-                Console.WriteLine((data[(data.Length - 1) - i]));
+               // Console.WriteLine((data[(data.Length - 1) - i]));
             }
+            return data;
         }
 
-        static void SelectionSort(int[] data)
+        static int[] SelectionSort(int[] data)
         {
             for (int i = 0; i < data.Length; i++)
             {
@@ -43,33 +48,47 @@ namespace SortConsole
                         ChangeNumber(ref data[i], ref data[j + 1]);
                     }
                 }
-                Console.WriteLine(data[i]);
+                //Console.WriteLine(data[i]);
             }
+            return data;
         }
 
-        static void InsertSort(int[] data)
+        static int[] InsertSort(int[] data)
         {
             for (int i = 0; i < data.Length; i++)
             {
-                int maxIndex = i;
-                for (int j = i; j < data.Length - 1; j++)
+                int currIndex = i;
+                int currData = data[i];
+                for (int j = 0; j < data.Length; j++)
                 {
-                    if (data[i] > data[j + 1])
+                    if (currIndex > 0 && data[currIndex - 1] > currData)
                     {
-                        ChangeNumber(ref data[i], ref data[j + 1]);
+                        data[currIndex] = data[currIndex - 1];
+                        currIndex--;
                     }
-                }
+                    else
+                    {
+                        data[currIndex] = currData;
+                    }
+                }        
+            }
+            return data;
+        }
+
+        static void WriteData(int [] data)
+        {
+            for (int i = 0; i < data.Length; i++)
+            {
                 Console.WriteLine(data[i]);
             }
         }
-
-        static int[] GenerateData(int size)
+        static int[] GenerateData(int size,int max)
         {
             int[] data = new int[size];
             Random r = new Random();
             for (int i = 0; i < data.Length; i++)
             {
-                data[i] = r.Next(0, 100000);
+                data[i] = r.Next(0, max);
             }
             return data;
         }
