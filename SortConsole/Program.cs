@@ -10,10 +10,14 @@ namespace SortConsole
     {
         static void Main(string[] args)
         {
-            int [] data = GenerateData(10000,100000);
+            int [] data = GenerateData(10,10);
+            WriteData(data);
+            Console.WriteLine("---------------------------");
+            CountingSort1(data);
             //BubbleSort(data);                   
             //SelectionSort(data);
-            WriteData(InsertSort(data));
+            //WriteData(InsertSort(data));
+            //WriteData(CountingSort(data));
             //WriteData(BubbleSort(data));
             //WriteData(SelectionSort(data));
             //InsertSort(data);
@@ -75,6 +79,56 @@ namespace SortConsole
             return data;
         }
 
+
+        static int[] CountingSort(int[] data)
+        {
+            
+            int maxNum = data.Max();
+            int[] temp = new int[maxNum+1];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = 0;
+            }
+            
+            for (int i = 0; i < data.Length-1; i++)
+            {
+                temp[data[i]]++;
+            }
+            int currentIndex = 0;
+            for (int i = 0; i < maxNum-1; i++)
+            {
+                for (int j = 0; j < temp[i]-1; j++)
+                {
+                    data[currentIndex] = i;
+                    currentIndex++;
+                }
+            }
+            return data;
+        }
+
+        public static void CountingSort1(int [] data)
+
+        {
+            int max = data.Max();
+            int [] TempData = new int[max + 1];
+            for (int i = 0; i < TempData.Length; i++)
+            {
+                TempData[i]=0;
+            }
+            for (int i = 0; i < data.Length+1; i++)
+            {
+                TempData[data[i]]++;
+            }
+            int currentIndex = 0;
+            for (int i = 0; i < max; i++)
+            {
+                for (int j = 0; j < TempData[i] - 1; j++)
+                {
+                    data[currentIndex] = i;
+                    currentIndex++;
+                }
+            }
+        }
         static void WriteData(int [] data)
         {
             for (int i = 0; i < data.Length; i++)
@@ -82,6 +136,8 @@ namespace SortConsole
                 Console.WriteLine(data[i]);
             }
         }
+
+
         static int[] GenerateData(int size,int max)
         {
             int[] data = new int[size];
